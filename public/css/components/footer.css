@@ -1,0 +1,10 @@
+footer{
+    width: 100%;
+    min-height: 70vh;
+    background: #303133;
+    color: #FFFF;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}

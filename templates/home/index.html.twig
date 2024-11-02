@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Découvrez les saveurs du monde - La Fourchette Victorieuse{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/home/home.css')}}">
+{% endblock %}
+
+{% block body %}
+<section id="home">
+    {% include 'components/home/banner.html.twig' %}
+    {% include 'home/home-section2.html.twig' %}
+    {% include 'home/home-section3.html.twig' %}
+</section>
+{% endblock %}
+{% block js %}
+<script src="{{asset('js/scroll.js')}}"></script>
+{% endblock %}
