@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Fourchette Victorieuse - Commandez vos plats favoris{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/register/register.css')}}">
+{% endblock %}
+{% block body %}
+<section id="register">
+    <div class="img-container">
+        <img src="{{asset('image/register/burger.jpg')}}" alt="Hamburger sur une planche de cuisine">
+    </div>
+    <div class="form-container">
+        <h1 class="mb-3">Inscription</h1>
+        {{ form_start(registerForm) }}
+            {{ form_row(registerForm.email) }}
+            {{ form_row(registerForm.lastname) }}
+            {{ form_row(registerForm.firstname) }}
+            {{ form_row(registerForm.plainPassword) }}
+        {{ form_end(registerForm) }}
+    </div>
+</section>
+{% endblock %}

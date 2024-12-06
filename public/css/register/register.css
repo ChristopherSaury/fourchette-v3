@@ -1,0 +1,42 @@
+#register{
+    width: 100%;
+    min-height: 160vh;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: row;
+}
+#register .formInput{
+    width: 400px;
+    height: 48px;
+    border: 1px solid #ccc;
+    box-shadow: inset 2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+#register .signUpBtn{
+    font-weight: bold;
+    width: 400px;
+    height: 48px;
+    background-color: #fdbd32;
+    color: #000;
+}
+#register .signUpBtn:hover{
+    background-color: #dcb96f;
+}
+#register .img-container{
+    width: 55%;
+    min-height: calc(160vh - 70px);
+}
+#register .form-container{
+    width: 45%;
+    min-height: calc(160vh - 70px);
+    padding: 4%;
+}
+#register .img-container img{
+    width: 100%;
+    height: 100%;
+}
+#register .form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
