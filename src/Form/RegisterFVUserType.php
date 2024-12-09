@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\FVUser;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -12,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\IsTrue;
 use Webmozart\Assert\Assert as AssertAssert;
 
 class RegisterFVUserType extends AbstractType
@@ -21,7 +24,8 @@ class RegisterFVUserType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'label' => 'Adresse Email :',
-                'attr' => ['class' => 'formInput','placeholder' => 'ex: tdaniel@exemple.com']
+                'attr' => ['class' => 'formInput','placeholder' => 'ex: tdaniel@exemple.com'],
+                'mapped' => true
             ])
             ->add('firstname', TextType::class,[
                 'label' => 'Prénom :',
@@ -53,6 +57,16 @@ class RegisterFVUserType extends AbstractType
                 'second_options' => ['label' => 'Confirmez mot de passe :','attr' => [ 'class' => 'formInput', 'placeholder' =>  'Confirmez votre mot de passe :']],
                 'mapped' => false
             ])
+            ->add('agreeTerms', CheckboxType::class,[
+                'label' => 'J\'ai lu et j\'accepte les <a href="https://127.0.0.1:8000/" target="_blank">conditions d\'utilisation</a>',
+                'label_html' => true,
+                'mapped' => false,
+                'constraints' => [
+                    new IsTrue([
+                        'message' => 'Vous devez accepter les conditions d’utilisation pour continuer.',
+                    ])
+                ]
+            ])
             ->add('submit', SubmitType::class,[
                 'label' => 'Terminer',
                 'attr' => ['class' => 'btn signUpBtn']
@@ -63,6 +77,13 @@ class RegisterFVUserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            'constraints' =>[
+                new UniqueEntity([
+                    'entityClass' => FVUser::class,
+                    'fields' => 'email',
+                    'message' => 'Cette adresse email est déjà utilisée'
+                ])
+            ],
             'data_class' => FVUser::class,
         ]);
     }
