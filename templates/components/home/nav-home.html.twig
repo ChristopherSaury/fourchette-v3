@@ -7,13 +7,16 @@
     <div class="link-container">
         <ul>
             <li><a href="{{path('app_home')}}" class="navigation-link">Accueil</a></li>
-            <li><a href="#" class="navigation-link">Connexion</a></li>
+            <li><a href="{{path('app_login')}}" class="navigation-link">Connexion</a></li>
             <li><a href="#" class="navigation-link">Plats</a></li>
             <li><a href="#" class="navigation-link">Contact</a></li>
             <li><a href="#" class="navigation-link">FAQ</a></li>
         </ul>
     </div>
-    <div class="icons">
-        <a href="#" title="Mon panier" class="fas fa-shopping-cart"></a>
+    <div class="icons-container">
+        {% if app.user %}
+        <a class="navigation-link" href="{{path('app_account')}}">Espace Membre</a>
+        {% endif %}
+        <a href="#" title="Mon panier" class="fas fa-shopping-cart shopping-icon"></a>
       </div>
   </nav>
