@@ -16,6 +16,9 @@
             {{ form_row(registerForm.lastname) }}
             {{ form_row(registerForm.firstname) }}
             {{ form_row(registerForm.plainPassword) }}
+            {{ form_row(registerForm.agreeTerms) }}
+            {{ form_row(registerForm.submit) }}
+            <p>Vous avez déja un compte ? <a href="{{path('app_login')}}">Connectez-vous</a></p>
         {{ form_end(registerForm) }}
     </div>
 </section>
