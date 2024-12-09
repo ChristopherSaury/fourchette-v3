@@ -42,7 +42,7 @@ header .navbar .logo-container{
     align-items: center;
 }
 header .navbar .link-container{
-    width: 80%;
+    width: 70%;
     height: 70px;
     display: flex;
     align-items: center;
@@ -66,13 +66,14 @@ header .navigation-link{
 header .navigation-link:hover{
     color: var(--main-yellow);
 }
-header .icons{
-    width: 10%;
+header .icons-container{
+    width: 20%;
     height: 70px;
     display: flex;
     align-items: center;
+    gap: 5px;
 }
-header .icons a {
+header .icons-container .shopping-icon {
     cursor: pointer;
     height: 35px;
     line-height: 35px;
@@ -85,7 +86,7 @@ header .icons a {
     background: #eee;
 }
   
-header .icons a:hover{
+header .icons-container .shopping-icon:hover{
     color: #fff;
     background: var(--main-yellow);
     transition: all 0.4s linear;
