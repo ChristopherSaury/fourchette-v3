@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Fourchette Victorieuse - Connectez-vous{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/login/login.css')}}">
+{% endblock %}
+
+{% block body %}
+<section id="login">
+    <div class="img-container">
+        <img src="{{asset('image/login/pizza-table.jpg')}}" alt="Un plat apéritif, une entrée et un plat principal sont disposés sur une table">
+    </div>
+    <div class="form-container">
+        <h1 class="mb-3">Connexion</h1>
+        {% if error %}
+        <div style="color: #dc3545;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path('app_login') }}" method="post">
+        <label for="username">Adresse Email:</label>
+        <input class="mb-2" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="ex: tdaniel@exemple.com" required>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="_password" placeholder="Saisissez votre mot de passe" required>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <button type="submit">Connexion</button>
+        <p class="mt-2  ">Vous n'avez pas de compte ? <a href="{{path('app_register')}}">inscrivez-vous</a></p>
+    </form>
+    </div>
+</section>
+{% endblock %}
