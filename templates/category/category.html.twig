@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Fourchette Victorieuse - Carte {{ category.name }}{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/category/category.css')}}">
+{% endblock %}
+
+{% block body %}
+<section id="category">
+    <div class="container">
+        <h1>{{category.name}}</h1>
+        <p>Cette catégorie contient {{ category.fVDishes|length }} plat(s)</p>
+        <div class="row">
+            {% for dish in category.fVDishes  %}
+            <div class="grid-item col-lg-4 mt-4 col-md-6 col-sm-12 col-xs-12">
+                <a href="" class="dish-link">
+                    <img src="{{ asset('image/uploads/') }}{{dish.image}}" alt="{{dish.name}}">
+                    <h2 class="text-center dish-title">{{ dish.name }}</h2>
+                    <span class="text-center">€{{ dish.price }}</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

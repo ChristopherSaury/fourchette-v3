@@ -1,0 +1,24 @@
+#category{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 70px;
+    padding-bottom: 4%;
+}
+#category .dish-link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #000;
+}
+#category .dish-link:hover{
+    opacity: 0.8;
+}
+#category .dish-link img{
+    max-width: 100%;
+    max-height: 380px ;
+}
+#category .dish-link .dish-title{
+    font-size: 18px;
+}

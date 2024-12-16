@@ -1,0 +1,12 @@
+<div class="row">
+    {% for starter in starters %}
+    <div class="grid-item col-lg-4 mt-4 col-md-6 col-sm-12 col-xs-12">
+        <a href="" class="dish-link">
+            <img src="{{ asset('image/uploads/') }}{{starter.image}}" alt="{{starter.name}}">
+            <h2 class="text-center dish-title">{{ starter.name }}</h2>
+            <span class="text-center">€{{ starter.price }}</span>
+        </a>
+    </div>
+    {% endfor %}
+    <a href="{{path('app_category', {slug: 'entree'})}}">+ d'Entrées</a>
+</div>
