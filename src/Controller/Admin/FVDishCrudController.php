@@ -29,6 +29,11 @@ class FVDishCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $required = true;
+
+        if($pageName === 'edit'){
+            $required = false;
+        }
         return [
             TextField::new('name','Nom')->setHelp('Nom du plat'),
             SlugField::new('slug','URL')->setTargetFieldName('name')->setHelp('URL générée automatiquement'),
@@ -36,7 +41,8 @@ class FVDishCrudController extends AbstractCrudController
             ImageField::new('image','Image')
             ->setHelp('Photo du plat en 600x600')
             ->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]')
-            ->setBasePath('/image/uploads')->setUploadDir('/public/image/uploads'),
+            ->setBasePath('/image/uploads')->setUploadDir('/public/image/uploads')
+            ->setRequired($required),
             NumberField::new('price','Prix H.T')->setHelp('Prix du plat H.T sans le sigle €'),
             ChoiceField::new('tva','Taux de TVA')->setChoices([
                 '5,5%' => '5.5',
