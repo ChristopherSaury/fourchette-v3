@@ -1,0 +1,13 @@
+<div class="row">
+    <h2 class="mt-4">Nos plats principaux</h2>
+    {% for main_course in main_courses %}
+    <div class="grid-item col-lg-4 mt-4 col-md-6 col-sm-12 col-xs-12">
+        <a href="{{path('app_category_dish', {'cat_slug' : 'plat-principal' , 'dish_slug': main_course.slug })}}" class="dish-link">
+            <img src="{{ asset('image/uploads/') }}{{main_course.image}}" alt="{{main_course.name}}">
+            <h2 class="text-center dish-title">{{ main_course.name }}</h2>
+            <span class="text-center">{{ main_course.priceWt|price }}</span>
+        </a>
+    </div>
+    {% endfor %}
+    <a href="{{path('app_category', {slug: 'plat-principal'})}}">+ de plats principaux</a>
+</div>
