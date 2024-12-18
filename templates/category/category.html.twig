@@ -9,14 +9,15 @@
 <section id="category">
     <div class="container">
         <h1>{{category.name}}</h1>
-        <p>Cette catégorie contient {{ category.fVDishes|length }} plat(s)</p>
+        <a href="{{path('app_category_all')}}">Retour à la carte</a>
+        <p>Cette catégorie contient {{ dish_number }} plat(s)</p>
         <div class="row">
-            {% for dish in category.fVDishes  %}
+            {% for dish in dishes  %}
             <div class="grid-item col-lg-4 mt-4 col-md-6 col-sm-12 col-xs-12">
-                <a href="" class="dish-link">
+                <a href="{{path('app_category_dish', {'cat_slug' : category.slug, 'dish_slug': dish.slug })}}" class="dish-link">
                     <img src="{{ asset('image/uploads/') }}{{dish.image}}" alt="{{dish.name}}">
                     <h2 class="text-center dish-title">{{ dish.name }}</h2>
-                    <span class="text-center">€{{ dish.price }}</span>
+                    <span class="text-center">{{ dish.priceWt|price }}</span>
                 </a>
             </div>
             {% endfor %}
