@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ dish.name }} - La Fourchette Victorieuse{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/category/dish-details.css')}}">
+{% endblock %}
+
+{% block body %}
+<section id="dish-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-end">
+                <img class="dish-photo" src="{{ asset('image/uploads/') }}{{dish.image}}" alt="{{dish.name}}">
+            </div>
+            <div class="col-lg-6">
+                <a href="{{path('app_category', {slug: category.slug})}}">retour a la carte des {{ category.name }}</a>
+                <h1>{{ dish.name }}</h1>
+                <p class="price">{{ dish.priceWt|price }} TTC</p>
+                <p>{{ dish.description|raw }}</p>
+                <a href="" class="btn btn-success w-100 mt-3">Ajouter au panier</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
