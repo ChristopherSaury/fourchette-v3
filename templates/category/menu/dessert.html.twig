@@ -2,7 +2,7 @@
     <h2 class="mt-4">Nos désserts</h2>
     {% for dessert in desserts %}
     <div class="grid-item col-lg-4 mt-4 col-md-6 col-sm-12 col-xs-12">
-        <a href="{{path('app_category_dish', {'cat_slug' : 'dessert' , 'dish_slug': dessert.slug })}}" class="dish-link">
+        <a href="{{path('app_category_dish', {'dish_slug': dessert.slug })}}" class="dish-link">
             <img src="{{ asset('image/uploads/') }}{{dessert.image}}" alt="{{dessert.name}}">
             <h2 class="text-center dish-title">{{ dessert.name }}</h2>
             <span class="text-center">{{ dessert.priceWt|price }}</span>
