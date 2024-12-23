@@ -1,0 +1,19 @@
+#cart{
+    width: 100%;
+    min-height: 100vh;
+    padding: 90px 0 4% 0;
+}
+#cart .item-qty{
+    min-width: 30px;
+    height: 21px;
+}
+#cart .btn-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 21px;
+    background: #000;
+    color: #ffff;
+    margin: 0 1px 0 1px;
+}
