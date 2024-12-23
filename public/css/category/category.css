@@ -1,8 +1,7 @@
 #category{
     width: 100%;
     min-height: 100vh;
-    padding-top: 70px;
-    padding-bottom: 4%;
+    padding: 90px 0 4% 0;
 }
 #category .dish-link{
     display: flex;
