@@ -74,6 +74,7 @@ header .icons-container{
     gap: 5px;
 }
 header .icons-container .shopping-icon {
+    position: relative;
     cursor: pointer;
     height: 35px;
     line-height: 35px;
@@ -91,4 +92,20 @@ header .icons-container .shopping-icon:hover{
     background: var(--main-yellow);
     transition: all 0.4s linear;
     transform: rotate(360deg);
+}
+
+header .icons-container .cartQty{
+    position: absolute;
+    top: 14px;
+    right: 235px;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-yellow);
+    color: var(--main-brown);
 }
