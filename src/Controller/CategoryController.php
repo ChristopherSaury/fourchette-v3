@@ -39,13 +39,10 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/category/{cat_slug}/{dish_slug}', name:'app_category_dish')]
-    public function dishDetails($cat_slug, $dish_slug, FVCategoryRepository $fVCategoryRepository,
-    FVDishRepository $fVDishRepository){
-        $category = $fVCategoryRepository->findOneBySlug($cat_slug);
+    #[Route('/plat/{dish_slug}', name:'app_category_dish')]
+    public function dishDetails($dish_slug, FVDishRepository $fVDishRepository){
         $dish = $fVDishRepository->findOneBySlug($dish_slug);
         return $this->render('category/dish-details/details.html.twig',[
-            'category' => $category,
             'dish' => $dish
         ]);
     }
