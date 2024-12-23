@@ -17,6 +17,7 @@
         {% if app.user %}
         <a class="navigation-link" href="{{path('app_account')}}">Espace Membre</a>
         {% endif %}
-        <a href="#" title="Mon panier" class="fas fa-shopping-cart shopping-icon"></a>
+        <a href="{{path('app_cart')}}" title="Mon panier" class="fas fa-shopping-cart shopping-icon"></a>
+        <span class="cartQty">{{ getFullCartQty }}</span>
       </div>
   </nav>
