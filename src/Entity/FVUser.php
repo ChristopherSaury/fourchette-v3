@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FVUserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -43,6 +45,17 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank(message: 'Veuillez entrer votre nom')]
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
+
+    /**
+     * @var Collection<int, FVAddress>
+     */
+    #[ORM\OneToMany(targetEntity: FVAddress::class, mappedBy: 'user')]
+    private Collection $fVAddresses;
+
+    public function __construct()
+    {
+        $this->fVAddresses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -139,6 +152,36 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): static
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FVAddress>
+     */
+    public function getFVAddresses(): Collection
+    {
+        return $this->fVAddresses;
+    }
+
+    public function addFVAddress(FVAddress $fVAddress): static
+    {
+        if (!$this->fVAddresses->contains($fVAddress)) {
+            $this->fVAddresses->add($fVAddress);
+            $fVAddress->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFVAddress(FVAddress $fVAddress): static
+    {
+        if ($this->fVAddresses->removeElement($fVAddress)) {
+            // set the owning side to null (unless already changed)
+            if ($fVAddress->getUser() === $this) {
+                $fVAddress->setUser(null);
+            }
+        }
 
         return $this;
     }
