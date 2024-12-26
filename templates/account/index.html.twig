@@ -7,6 +7,16 @@
 
 {% block body %}
 <section id="account">
-    <a href="https://127.0.0.1:8000/logout">Déconnexion</a>
+    <div class="container">
+        <div class="row">
+            <h1>Espace Membre</h1>
+            <div class="col-lg-4 col-md-4">
+                {% include './account/__menu.html.twig' %}
+            </div>
+            <div class="col-lg-8 col-md-8">
+
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
