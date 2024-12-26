@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Changer mot de passe - La Fourchette Victorieuse{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/account/account.css')}}">
+{% endblock %}
+
+{% block body %}
+<section id="account">
+    <div class="container">
+        <div class="row">
+            <h1>Espace Membre</h1>
+            <div class="col-lg-4 col-md-4">
+                {% include './account/__menu.html.twig' %}
+            </div>
+            <div class="col-lg-8 col-md-8">
+                {% for message in app.flashes('success-psw') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                <h1>Modifier mot de passe</h1>
+                {{ form(psw_update) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajouter adresse - La Fourchette Victorieuse {% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/account/addresses.css')}}">
+{% endblock %}
+{% block body %}
+<section id="addresses-create">
+    <div class="container">
+        <h1>Espace membre</h1>
+        <div class="row">
+            <div class="col-md-3">
+                {% include './account/__menu.html.twig' %}
+            </div>
+            <div class="col-md-9">
+                <h5>Ajouter une adresses</h5>
+
+                {{ form_start(addressForm) }}
+                <div class="row">
+                    <div class="col-md-6">{{ form_row(addressForm.lastname) }}</div>
+                    <div class="col-md-6">{{ form_row(addressForm.firstname) }}</div>
+                    <div class="col-md-6">{{ form_row(addressForm.address) }}</div>
+                    <div class="col-md-6">{{ form_row(addressForm.postal) }}</div>
+                    <div class="col-md-6">{{ form_row(addressForm.city) }}</div>
+                    <div class="col-md-6">{{ form_row(addressForm.country) }}</div>
+                    <div class="col-md-6">{{ form_row(addressForm.phone) }}</div>
+                </div>
+                {{ form_end(addressForm) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

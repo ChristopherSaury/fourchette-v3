@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Fourchette Victorieuse - Carte des plats{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/category/menu.css')}}">
+{% endblock %}
+
+{% block body %}
+<section id="dish-menu">
+<div class="container">
+    <h1>Notre Carte</h1>
+    {% include './dish/menu/starter.html.twig' %}
+    {% include './dish/menu/main-course.html.twig' %}
+    {% include './dish/menu/dessert.html.twig' %}
+</div>
+</section>
+{% endblock %}
