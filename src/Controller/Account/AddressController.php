@@ -2,6 +2,7 @@
 
 namespace App\Controller\Account;
 
+use App\Classe\Cart;
 use App\Entity\FVAddress;
 use App\Form\FVAdressUserType;
 use App\Repository\FVAddressRepository;
@@ -18,63 +19,66 @@ class AddressController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
-    
-    #[Route('/compte/mes-adresses', name:'app_account_addresses' )]
-    public function index(): Response 
+
+    #[Route('/compte/mes-adresses', name: 'app_account_addresses')]
+    public function index(): Response
     {
         return $this->render('account/address/index.html.twig');
-
     }
 
-    #[Route('/compte/adresse/ajouter/{id}', name:'app_account_addresses_form', defaults:[ 'id' => null ] )]
-    public function form(Request $request, $id, FVAddressRepository $fVAddressRepository): Response 
+    #[Route('/compte/adresse/ajouter/{id}', name: 'app_account_addresses_form', defaults: ['id' => null])]
+    public function form(Request $request, $id, FVAddressRepository $fVAddressRepository, Cart $cart): Response
     {
-        if($id){
+        if ($id) {
             $address = $fVAddressRepository->findOneById($id);
-            if(!$address OR $address->getUser() != $this->getUser()){
+            if (!$address or $address->getUser() != $this->getUser()) {
                 return $this->redirectToRoute('app_account_addresses');
             }
-        }else{
+        } else {
             $address = new FVAddress;
             $address->setUser($this->getUser());
+            $address->setCity('Paris');
+            $address->setCountry('FR');
         }
-        
+
         $form = $this->createForm(FVAdressUserType::class, $address);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($address);
             $this->entityManager->flush();
-            
+
             $this->addFlash(
                 'success-address',
                 'Votre adresse est correctement sauvegardé'
             );
 
+            if ($cart->getFullCartQty() > 0) {
+                return $this->redirectToRoute('app_order');
+            }
             return $this->redirectToRoute('app_account_addresses');
         }
 
-        return $this->render('account/address/form.html.twig',[
+        return $this->render('account/address/form.html.twig', [
             'addressForm' => $form->createView()
         ]);
-
     }
 
-    #[Route('/compte/adresse/supprimer/{id}', name:'app_account_addresses_delete' )]
-    public function delete($id, FVAddressRepository $fVAddressRepository){
-        
-            $address = $fVAddressRepository->findOneById($id);
-            if(!$address OR $address->getUser() != $this->getUser()){
-                return $this->redirectToRoute('app_account_addresses');
-            }
-            $this->addFlash(
-                'success-address',
-                'Votre adresse est correctement supprimée'
-            );
-            $this->entityManager->remove($address);
-            $this->entityManager->flush();
+    #[Route('/compte/adresse/supprimer/{id}', name: 'app_account_addresses_delete')]
+    public function delete($id, FVAddressRepository $fVAddressRepository)
+    {
 
+        $address = $fVAddressRepository->findOneById($id);
+        if (!$address or $address->getUser() != $this->getUser()) {
             return $this->redirectToRoute('app_account_addresses');
-    }
+        }
+        $this->addFlash(
+            'success-address',
+            'Votre adresse est correctement supprimée'
+        );
+        $this->entityManager->remove($address);
+        $this->entityManager->flush();
 
+        return $this->redirectToRoute('app_account_addresses');
+    }
 }
