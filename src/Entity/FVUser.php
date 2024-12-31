@@ -52,9 +52,16 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: FVAddress::class, mappedBy: 'user')]
     private Collection $fVAddresses;
 
+    /**
+     * @var Collection<int, FVOrder>
+     */
+    #[ORM\OneToMany(targetEntity: FVOrder::class, mappedBy: 'user')]
+    private Collection $fVOrders;
+
     public function __construct()
     {
         $this->fVAddresses = new ArrayCollection();
+        $this->fVOrders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -132,6 +139,11 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
+    public function __toString()
+    {
+        return $this->getFirstname().' '.$this->getLastname();
+    }
+
     public function getFirstname(): ?string
     {
         return $this->firstname;
@@ -180,6 +192,36 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($fVAddress->getUser() === $this) {
                 $fVAddress->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FVOrder>
+     */
+    public function getFVOrders(): Collection
+    {
+        return $this->fVOrders;
+    }
+
+    public function addFVOrder(FVOrder $fVOrder): static
+    {
+        if (!$this->fVOrders->contains($fVOrder)) {
+            $this->fVOrders->add($fVOrder);
+            $fVOrder->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFVOrder(FVOrder $fVOrder): static
+    {
+        if ($this->fVOrders->removeElement($fVOrder)) {
+            // set the owning side to null (unless already changed)
+            if ($fVOrder->getUser() === $this) {
+                $fVOrder->setUser(null);
             }
         }
 
