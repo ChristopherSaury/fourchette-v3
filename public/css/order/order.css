@@ -1,0 +1,13 @@
+#order{
+    width: 100%;
+    min-height: 100vh;
+    padding: 90px 0 4% 0;
+}
+
+#order .orderInput{
+    max-width: 400px;
+    height: auto;
+    background-color: #e8f1ff;
+    margin-bottom: 2px;
+    padding: 5px;
+}

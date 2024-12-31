@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande - La Fourchette Victorieuse{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/order/order.css')}}">
+{% endblock %}
+{% block body %}
+<section id="order">
+    <h1 class="mb-5 text-center">Ma commande</h1>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="row col-md-6">
+            {{ form_start(deliverForm) }}
+            {{ form_row(deliverForm.addresses) }}
+            <a href="{{ path('app_account_addresses_form') }}" class="mb-2 small">Ajouter une adresse de livraison</a>
+            <hr>
+            {{ form_row(deliverForm.carriers) }}
+            {{ form_end(deliverForm) }}
+        </div>
+    </div>
+</section>
+{% endblock %}
