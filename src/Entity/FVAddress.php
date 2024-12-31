@@ -43,6 +43,12 @@ class FVAddress
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return $this->getFirstname().' '.$this->getLastname(). '<br/>'.$this->getAddress().'<br/>'
+        .$this->getPostal(). ', ' .$this->getCity().' - '.$this->getCountry().'</br>';
+    }
+
     public function getFirstname(): ?string
     {
         return $this->firstname;
