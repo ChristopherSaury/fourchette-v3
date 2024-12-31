@@ -1,0 +1,9 @@
+#summary{
+    width: 100%;
+    min-height: 100vh;
+    padding: 90px 0 4% 0;
+}
+#summary .item-qty{
+    min-width: 30px;
+    height: 21px;
+}
