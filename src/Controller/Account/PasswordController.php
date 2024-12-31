@@ -22,13 +22,13 @@ class PasswordController extends AbstractController
         ]);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             $this->addFlash('success-psw', 'Mot de passe mis à jour avec succès');
 
             return $this->redirectToRoute('app_account_update_psw');
         }
-        return $this->render('account/password/index.html.twig',[
+        return $this->render('account/password/index.html.twig', [
             'psw_update' => $form
         ]);
     }

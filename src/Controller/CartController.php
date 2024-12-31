@@ -14,19 +14,19 @@ class CartController extends AbstractController
     #[Route('/mon-panier', name: 'app_cart')]
     public function index(Cart $cart): Response
     {
-        return $this->render('cart/index.html.twig',[
+        return $this->render('cart/index.html.twig', [
             'cart' => $cart->getCart(),
             'totalWt' => $cart->getTotalWt()
         ]);
     }
 
-    #[Route('/cart/add/dish/{id}', name:'app_cart_add')]
-    public function addDishToCart($id,Cart $cart, FVDishRepository $fVDishRepository, Request $request): Response 
+    #[Route('/cart/add/dish/{id}', name: 'app_cart_add')]
+    public function addDishToCart($id, Cart $cart, FVDishRepository $fVDishRepository, Request $request): Response
     {
         $qty = $request->get('qty', 1);
         $dish = $fVDishRepository->findOneById($id);
         $cart->add($dish, $qty);
-        
+
         $this->addFlash(
             'success',
             'Produit ajouté à votre panier'
@@ -34,11 +34,11 @@ class CartController extends AbstractController
 
         return $this->redirect($request->headers->get('referer'));
     }
-    #[Route('/cart/decrease/dish/{id}', name:'app_cart_decrease')]
-    public function decrease($id,Cart $cart): Response 
+    #[Route('/cart/decrease/dish/{id}', name: 'app_cart_decrease')]
+    public function decrease($id, Cart $cart): Response
     {
         $cart->decrease($id);
-        
+
         $this->addFlash(
             'success',
             'Produit retiré de votre panier'
@@ -47,7 +47,7 @@ class CartController extends AbstractController
         return $this->redirectToRoute('app_cart');
     }
 
-    #[Route('/cart/remove/dish/{id}', name:'app_cart_remove')]
+    #[Route('/cart/remove/dish/{id}', name: 'app_cart_remove')]
     public function remove($id, Cart $cart): Response
     {
         $cart->removeDish($id);

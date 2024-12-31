@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\FVCategory;
 use App\Entity\FVDish;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -21,38 +20,38 @@ class FVDishCrudController extends AbstractCrudController
     {
         return FVDish::class;
     }
-    public function configureCrud(Crud $crud):Crud{
+    public function configureCrud(Crud $crud): Crud
+    {
         return $crud
-        ->setEntityLabelInSingular('Plat')
-        ->setEntityLabelInPlural('Plats');
+            ->setEntityLabelInSingular('Plat')
+            ->setEntityLabelInPlural('Plats');
     }
 
     public function configureFields(string $pageName): iterable
     {
         $required = true;
 
-        if($pageName === 'edit'){
+        if ($pageName === 'edit') {
             $required = false;
         }
         return [
-            TextField::new('name','Nom')->setHelp('Nom du plat'),
-            SlugField::new('slug','URL')->setTargetFieldName('name')->setHelp('URL générée automatiquement'),
-            TextEditorField::new('description','Description')->setHelp('Description du plat'),
-            ImageField::new('image','Image')
-            ->setHelp('Photo du plat en 600x600')
-            ->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]')
-            ->setBasePath('/image/uploads')->setUploadDir('/public/image/uploads')
-            ->setRequired($required),
-            NumberField::new('price','Prix H.T')->setHelp('Prix du plat H.T sans le sigle €'),
-            ChoiceField::new('tva','Taux de TVA')->setChoices([
+            TextField::new('name', 'Nom')->setHelp('Nom du plat'),
+            SlugField::new('slug', 'URL')->setTargetFieldName('name')->setHelp('URL générée automatiquement'),
+            TextEditorField::new('description', 'Description')->setHelp('Description du plat'),
+            ImageField::new('image', 'Image')
+                ->setHelp('Photo du plat en 600x600')
+                ->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]')
+                ->setBasePath('/image/uploads')->setUploadDir('/public/image/uploads')
+                ->setRequired($required),
+            NumberField::new('price', 'Prix H.T')->setHelp('Prix du plat H.T sans le sigle €'),
+            ChoiceField::new('tva', 'Taux de TVA')->setChoices([
                 '5,5%' => '5.5',
                 '10%' => '10',
                 '20%' => '20'
             ]),
-            AssociationField::new('category','Catégorie'),
+            AssociationField::new('category', 'Catégorie'),
             BooleanField::new('isAvailable', 'Disponible')->setHelp('Le plat est-il disponible ?')
 
         ];
     }
-    
 }
