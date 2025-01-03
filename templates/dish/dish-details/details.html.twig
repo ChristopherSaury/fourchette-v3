@@ -18,7 +18,11 @@
                 <img class="dish-photo" src="{{ asset('image/uploads/') }}{{dish.image}}" alt="{{dish.name}}">
             </div>
             <div class="col-lg-6">
+                <p>
+                <a href="{{path('app_dish_all')}}">retour a la carte générale </a>
+                >
                 <a href="{{path('app_dish_category', {'slug': dish.category.slug})}}">retour a la carte {{ dish.category }}</a>
+                </p>
                 <h1>{{ dish.name }}</h1>
                 <p class="price">{{ dish.priceWt|price }} TTC</p>
                 <p>{{ dish.description|raw }}</p>
