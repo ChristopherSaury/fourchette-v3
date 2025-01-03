@@ -79,4 +79,9 @@ class Cart
         }
         return $price;
     }
+
+    public function remove()
+    {
+        return $this->requestStack->getSession()->remove('cart');
+    }
 }
