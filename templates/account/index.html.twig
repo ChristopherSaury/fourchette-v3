@@ -1,22 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La Fourchette Victorieuse - Espace membre{% endblock %}
+{% block title %}La Fourchette Victorieuse - Espace membre
+{% endblock %}
 {% block stylesheets %}
-<link rel="stylesheet" href="{{asset('css/account/account.css')}}">
+	<link rel="stylesheet" href="{{asset('css/account/account.css')}}">
 {% endblock %}
 
 {% block body %}
-<section id="account">
-    <div class="container">
-        <div class="row">
-            <h1>Espace Membre</h1>
-            <div class="col-lg-4 col-md-4">
-                {% include './account/__menu.html.twig' %}
-            </div>
-            <div class="col-lg-8 col-md-8">
-
-            </div>
-        </div>
-    </div>
-</section>
+	<section id="account">
+		<div class="container">
+			<h1>Espace Membre</h1>
+			<div class="row">
+				<div class="col-lg-3 col-md-4">
+					{% include './account/__menu.html.twig' %}
+				</div>
+				<div class="col-lg-9 col-md-8">
+					<h5>Mes dernières commandes</h5>
+                    {% if orders|length == 0 %}
+                    <div class="alert alert-info">
+                        Vous n'avez passé aucune commande pour le moment.
+                    </div>
+                    {% else %}
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">N°</th>
+								<th scope="col">Date</th>
+								<th scope="col">Statut</th>
+								<th scope="col">Total T.T.C</th>
+                                <th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+                        {% for order in orders %}
+							<tr>
+								<td>{{ order.id }}</td>
+								<td>{{ order.createdAt|date("d/m/Y") }}</td>
+								<td>{{ include('admin/state.html.twig', {field : { 'value' : order.state  }}) }}</td>
+								<td>{{ order.totalWt|price }}</td>
+                                <td><a href="{{ path('app_order_details', {'id_order' : order.id }) }}" class="btn btn-success">Voir</a></td>
+							</tr>
+                        {% endfor %}
+							
+						</tbody>
+					</table>
+                    {% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}
