@@ -87,6 +87,7 @@ class OrderController extends AbstractController
         return $this->render('order/summary.html.twig', [
             'choices' => $form->getData(),
             'cart' => $dishes,
+            'order' => $order,
             'cartQty' => $cart->getFullCartQty(),
             'totalWt' => $cart->getTotalWt()
         ]);
