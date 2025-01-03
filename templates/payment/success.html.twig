@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Merci pour votre commande - La Fourchette Victorieuse
+{% endblock %}
+
+{% block style %}
+	<style>
+		#thanks {
+			width: 100%;
+			min-height: 100vh;
+			padding: 90px 0 4%;
+		}
+		#thanks img {
+			width: 400px;
+			height: 400px;
+		}
+		#thanks a {
+			margin-top: 10px;
+			width: 200px;
+			height: auto;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+	<section id="thanks">
+		<div class="container d-flex flex-column justify-content-center">
+			<h1 class="text-center mb-5">Merci pour votre commande</h1>
+			<div class="row d-flex flex-column align-items-center">
+				<img src="{{ asset('image/payment/thanks.jpg') }}" alt="image de remmerciement">
+				<a class="btn btn-success" href="{{ path('app_order_details', {'id_order' : order.id }) }}">Détails commande</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}
