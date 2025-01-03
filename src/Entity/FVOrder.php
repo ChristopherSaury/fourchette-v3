@@ -41,6 +41,9 @@ class FVOrder
     #[ORM\JoinColumn(nullable: false)]
     private ?FVUser $user = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $stripe_session_id = null;
+
     public function __construct()
     {
         $this->fVOrderDetails = new ArrayCollection();
@@ -171,5 +174,17 @@ class FVOrder
             $totalTva += $dish->getDishPrice() * $coef;
         }
         return $totalTva;
+    }
+
+    public function getStripeSessionId(): ?string
+    {
+        return $this->stripe_session_id;
+    }
+
+    public function setStripeSessionId(?string $stripe_session_id): static
+    {
+        $this->stripe_session_id = $stripe_session_id;
+
+        return $this;
     }
 }
