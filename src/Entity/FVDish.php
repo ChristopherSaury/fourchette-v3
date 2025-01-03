@@ -105,7 +105,7 @@ class FVDish
 
     public function getPriceWt(){
         $coeff = 1 + ($this->tva/100);
-        return $coeff * $this->price;
+        return number_format($coeff * $this->price,2,'.');
     }
 
     public function getTva(): ?float
