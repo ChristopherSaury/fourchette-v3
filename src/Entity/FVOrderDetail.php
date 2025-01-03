@@ -96,6 +96,11 @@ class FVOrderDetail
         return $this;
     }
 
+    public function getDishPriceWt(){
+        $coeff = 1 + ($this->getDishTva()/100);
+        return $coeff * $this->getDishPrice();
+    }
+
     public function getDishTva(): ?float
     {
         return $this->dishTva;
