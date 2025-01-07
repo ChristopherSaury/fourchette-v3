@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - La Fourchette Victorieuse
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('css/contact/contact.css')}}">
+{% endblock %}
+
+
+{% block body %}
+	<section id="contact">
+		<div class="ct-banner">
+			<h1>Nous contacter</h1>
+		</div>
+		<div class="container">
+
+			{% for message in app.flashes('ct-success') %}
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			{% endfor %}
+
+			<div class="row mt-5">
+				<div>
+					{{ form_start(contactForm, { 'action' : path('app_contact_handler')}, {'method': 'POST'})}}
+					<div class="ct-input-container">
+						{{ form_row(contactForm.lastname) }}
+						{{ form_row(contactForm.firstname) }}
+						{{ form_row(contactForm.email) }}
+						{{ form_row(contactForm.subject) }}
+						{{ form_row(contactForm.content) }}
+						{{ form_row(contactForm.submit) }}
+					</div>
+					<div class="ct-img-container">
+						<img class="img-fluid" src="{{ asset('image/contact/contact-form.jpg') }}" alt="">
+					</div>
+					{{ form_end(contactForm) }}
+				</div>
+				<div class="ct-info">
+				<h4>Nos coordonnées</h4>
+					<p>
+						<strong>Adresse :</strong>
+						<span>10 rue Lorem Ipsum, Paris 75008, France</span>
+					</p>
+					<p>
+						<strong>Téléphone :</strong>
+						<a href="#">01 XX XX XX XX</a>
+					</p>
+					<p>
+						<strong>Email :</strong>
+						<a href="mailto:lfv@gmail.com">lfv@gmail.com</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
