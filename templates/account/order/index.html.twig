@@ -16,6 +16,7 @@
 				</div>
 				<div class="col-lg-9 col-md-8">
 					<h5>Détails commande N°{{ order.id }}</h5>
+					<a target="_blank" href="{{path('app_invoice_customer',{'id_order' : order.id})}}" class="btn btn-light mb-2">Imprimer  <i class="fa-solid fa-print"></i></a><br>
 					{{ include('admin/state.html.twig', {field : { 'value' : order.state  }}) }}
 					<br>
 					<hr>
