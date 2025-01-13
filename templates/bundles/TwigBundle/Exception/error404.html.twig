@@ -1,0 +1,73 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Error 404
+{% endblock %}
+{% block style %}
+	<style>
+		.error {
+			width: 100%;
+			min-height: 100vh;
+			padding: 90px 0 4%;
+		}
+		.error-ct {
+			width: 100%;
+			min-height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.error .notfound {
+			width: 500px;
+			height: 300px;
+		}
+		.btn-error {
+			background-color: #fdbd32;
+		}
+		.btn-error:hover {
+			background-color: #fca620;
+		}
+		@media(max-width: 768px) {
+			.error {
+				padding: 60px 0;
+			}
+
+			.error .notfound {
+				max-width: 300px;
+			}
+
+			.btn-error {
+				font-size: 14px;
+				padding: 8px 16px;
+			}
+		}
+
+		@media(max-width: 480px) {
+			.error {
+				padding: 40px 0;
+			}
+
+			.error .notfound {
+				max-width: 250px;
+			}
+
+			.btn-error {
+				font-size: 12px;
+				padding: 6px 12px;
+			}
+		}
+	</style>
+{% endblock %}
+{% block body %}
+	<section class="error">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 error-ct">
+					<h1>Page non trouvée</h1>
+					<img class="notfound" src="{{asset('image/errors/404.jpg')}}" alt="image erreur 404">
+					<a class="btn btn-error mt-2" href="{{path('app_home')}}">Retourner à l'accueil</a>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
