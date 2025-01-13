@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau mot de passe - La Fourchette Victorieuse{% endblock %}
+{% block style %}
+<style>
+    #reset-psw{
+        width: 100%;
+        min-height: 100vh;
+        padding: 90px 0 4% 0;
+    }
+    #reset-psw .form-container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #reset-psw form{
+        width: 400px;
+        height: auto;
+        background-color: #fafafa;
+        padding: 2%;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<section id="reset-psw">
+    <div class="container">
+        <div class="row">
+            {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+            {{ message }}
+            </div>
+            {% endfor %}
+            <div class="form-container">
+            <h1 class="text-center mb-4">Nouveau mot de passe</h1>
+                {{ form(resetPasswordForm) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
