@@ -14,7 +14,7 @@ class HomeController extends AbstractController
     {
         $orders = $fVOrderRepository->findBy([
             'user' => $this->getUser(),
-            'state' => [2,3,4],
+            'state' => [2,3,4,5,6],
         ], ['createdAt' => 'DESC']);
         
         return $this->render('account/index.html.twig', [
