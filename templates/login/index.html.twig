@@ -12,6 +12,11 @@
 			<img src="{{asset('image/login/pizza-table.jpg')}}" alt="Un plat apéritif, une entrée et un plat principal sont disposés sur une table">
 		</div>
 		<div class="form-container">
+			{% for message in app.flashes('success-reset') %}
+            <div class="alert alert-success">
+            {{ message }}
+            </div>
+            {% endfor %}
 			<h1 class="mb-3">Connexion</h1>
 			{% if error %}
 				<div style="color: #dc3545;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -29,7 +34,8 @@
 
 				<button type="submit">Connexion</button>
 				<p class="mt-2  ">Vous n'avez pas de compte ?
-					<a href="{{path('app_register')}}">inscrivez-vous</a>
+					<a href="{{path('app_register')}}">inscrivez-vous</a><br>
+					<a href="{{path('app_password')}}">Mot de passe oublié ?</a>
 				</p>
 			</form>
 		</div>
