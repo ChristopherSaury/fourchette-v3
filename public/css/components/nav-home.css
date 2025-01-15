@@ -74,13 +74,13 @@ header .navigation-link:hover{
     color: var(--main-yellow);
 }
 header .icons-container{
+    position: relative;
     width: 20%;
     height: 70px;
     display: flex;
     align-items: center;
 }
 header .icons-container .shopping-icon {
-    position: relative;
     cursor: pointer;
     height: 35px;
     line-height: 35px;
@@ -107,9 +107,9 @@ header .icons-container .shopping-icon:hover{
 }
 
 header .icons-container .cartQty{
-    position: absolute;
-    top: 14px;
-    right: 235px;
+    position: relative;
+    top: -14px;
+    right: -4px;
     width: 20px;
     height: 20px;
     font-size: 10px;
@@ -122,9 +122,9 @@ header .icons-container .cartQty{
     color: var(--main-brown);
 }
 header .icons-container .cartQtyLogged{
-    position: absolute;
-    top: 14px;
-    right: 65px;
+    position: relative;
+    top: -14px;
+    right: -2px;
     width: 20px;
     height: 20px;
     font-size: 10px;
@@ -135,4 +135,7 @@ header .icons-container .cartQtyLogged{
     justify-content: center;
     background: var(--main-yellow);
     color: var(--main-brown);
+}
+header .icons-container a{
+    position: relative;
 }
