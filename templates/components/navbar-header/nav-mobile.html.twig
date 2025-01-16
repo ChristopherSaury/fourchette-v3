@@ -1,0 +1,28 @@
+<header id="mobile-header">
+	<nav class="nav-mobile">
+		<a class="logo-mobile-container" href="{{ path('app_static_home') }}">
+			<img src="{{ asset('image/logo.png') }}" alt="logo Fourchette Victorieuse" class="logo-mobile">
+		</a>
+		<div class="menu-icon-container">
+			<div class="cart-icon-container d-flex justify-content-center align-items-center">
+				<a href="{{path('app_cart')}}" title="Mon panier" class="fas fa-shopping-cart shopping-icon"></a>
+				<span class="cartQty">{{ getFullCartQty }}</span>
+			</div>
+			<div class="btn-container d-flex justify-content-end align-items-center">
+				<i class="fa-solid fa-bars" id="menu-btn"></i>
+			</div>
+		</div>
+		<div class="nav-mobile-links">
+			{% if app.user %}
+				<a href="{{path('app_account')}}" class="navigation-link-mobile">Espace Membre</a>
+			{% endif %}
+			<a href="{{path('app_static_home')}}" class="navigation-link-mobile">Accueil</a>
+			<a href="{{path('app_register')}}" class="navigation-link-mobile">Inscription</a>
+			<a href="{{path('app_login')}}" class="navigation-link-mobile">Connexion</a>
+			<a href="{{path('app_dish_all')}}" class="navigation-link-mobile">Plats</a>
+			<a href="{{path('app_contact')}}" class="navigation-link-mobile">Contact</a>
+			<a href="{{path('app_static_faq')}}" class="navigation-link-mobile">FAQ</a>
+		</div>
+
+	</nav>
+</header>

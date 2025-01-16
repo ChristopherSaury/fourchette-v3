@@ -21,6 +21,7 @@
                         Vous n'avez passé aucune commande pour le moment.
                     </div>
                     {% else %}
+					<div class="table-responsive">	
 					<table class="table">
 						<thead>
 							<tr>
@@ -40,10 +41,10 @@
 								<td>{{ order.totalWt|price }}</td>
                                 <td><a href="{{ path('app_order_details', {'id_order' : order.id }) }}" class="btn btn-success">Voir</a></td>
 							</tr>
-                        {% endfor %}
-							
+                        {% endfor %}	
 						</tbody>
 					</table>
+					</div>
                     {% endif %}
 				</div>
 			</div>

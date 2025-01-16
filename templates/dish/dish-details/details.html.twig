@@ -14,10 +14,10 @@
             </div>
             {% endfor %}
         <div class="row">
-            <div class="col-lg-6 text-end">
+            <div class="col-lg-6 d-flex justify-content-center">
                 <img class="dish-photo" src="{{ asset('image/uploads/') }}{{dish.image}}" alt="{{dish.name}}">
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 description-container">
                 <p>
                 <a href="{{path('app_dish_all')}}">retour a la carte générale </a>
                 >

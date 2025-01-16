@@ -1,48 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Mes adresses - La Fourchette Victorieuse {% endblock %}
+{% block title %}
+	Mes adresses - La Fourchette Victorieuse
+{% endblock %}
 {% block stylesheets %}
-<link rel="stylesheet" href="{{asset('css/account/addresses.css')}}">
+	<link rel="stylesheet" href="{{asset('css/account/addresses.css')}}">
 {% endblock %}
 {% block body %}
-<section id="addresses">
-    <div class="container">
-        <h1>Espace membre</h1>
-        <div class="row">
-            <div class="col-md-4">
-                {% include './account/__menu.html.twig' %}
-            </div>
+	<section id="addresses">
+		<div class="container">
+			<h1>Espace membre</h1>
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					{% include './account/__menu.html.twig' %}
+				</div>
 
-            <div class="col-md-8">
+				<div class="col-md-8 col-sm-12">
 
-                {% for message in app.flashes('success-address') %}
-                <div class="alert alert-success">
-                    {{ message }}
-                </div>
-                {% endfor %}
+					{% for message in app.flashes('success-address') %}
+						<div class="alert alert-success">
+							{{ message }}
+						</div>
+					{% endfor %}
 
-                <h5>Mes adresses</h5>
+					<h5 class="mt-4">Mes adresses</h5>
 
-                <a href="{{path('app_account_addresses_form')}}" class="btn btn-light">Ajouter une adresse</a>
-                
-                {% if app.user.fVaddresses|length == 0 %}
-                <p>Aucune addresse enregistré</p><br>
-                {% else %}
+					<a href="{{path('app_account_addresses_form')}}" class="btn btn-light">Ajouter une adresse</a>
 
-                <div class="row">
-                    {% for address in app.user.fVaddresses %}
-                    <div class="col-md-4 bg-light p-2 text-center mt-4 mx-4">
-                        <strong>{{ address.firstname }} {{ address.lastname }}</strong> <br>
-                        {{ address.address }} <br>
-                        {{ address.postal }} , {{ address.city }} <br>
-                        {{ address.country }} <br>
-                        <a class="text-secondary" href="{{path('app_account_addresses_form', {id : address.id})}}">Editer</a>
-                        <a class="text-danger" href="{{ path('app_account_addresses_delete', {id : address.id}) }}">Supprimer</a>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-        </div>
-    </div>
-</section>
-{% endblock %}
+					{% if app.user.fVaddresses|length == 0 %}
+						<p>Aucune addresse enregistré</p><br>
+					{% else %}
+
+						<div class="row justify-content-center mb-4">
+							{% for address in app.user.fVaddresses %}
+								<div class="fv-user-address col-md-4 bg-light p-2 text-center mt-4 mx-4">
+									<strong>{{ address.firstname }}
+										{{ address.lastname }}</strong>
+									<br>
+									{{ address.address }}
+									<br>
+									{{ address.postal }}
+									,
+									{{ address.city }}
+									<br>
+									{{ address.country }}
+									<br>
+									<a class="text-secondary" href="{{path('app_account_addresses_form', {id : address.id})}}">Editer</a>
+									<a class="text-danger" href="{{ path('app_account_addresses_delete', {id : address.id}) }}">Supprimer</a>
+								</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</section>
+	{% endblock %}

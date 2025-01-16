@@ -16,7 +16,9 @@
 				</div>
 				<div class="col-lg-9 col-md-8">
 					<h5>Détails commande N°{{ order.id }}</h5>
-					<a target="_blank" href="{{path('app_invoice_customer',{'id_order' : order.id})}}" class="btn btn-light mb-2">Imprimer  <i class="fa-solid fa-print"></i></a><br>
+					<a target="_blank" href="{{path('app_invoice_customer',{'id_order' : order.id})}}" class="btn btn-light mb-2">Imprimer
+						<i class="fa-solid fa-print"></i>
+					</a><br>
 					{{ include('admin/state.html.twig', {field : { 'value' : order.state  }}) }}
 					<br>
 					<hr>
@@ -38,42 +40,44 @@
 					<hr>
 					<strong>Contenu de la commande :
 					</strong><br>
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">Image :</th>
-								<th scope="col">Nom du produit :</th>
-								<th scope="col">Quantité :</th>
-								<th scope="col">Prix unitaire H.T :</th>
-								<th scope="col">TVA :</th>
-								<th scope="col">Total T.T.C :</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for dish in order.fVOrderDetails %}
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
 								<tr>
-									<td>
-										<img width="100px" height="100px" src="/image/uploads/{{ dish.dishImage }}" alt="{{ dish.dishName }}">
-									</td>
-									<td>{{ dish.dishName }}</td>
-									<td>{{ dish.dishQuantity }}</td>
-									<td>{{ dish.dishPrice|price }}</td>
-									<td>{{ dish.dishTva }}%</td>
-									{% set coeff = 1 + (dish.dishTva / 100) %}
-									<td>{{ ((dish.dishPrice * coeff) * dish.dishQuantity)|price }}</td>
+									<th scope="col">Image :</th>
+									<th scope="col">Nom du produit :</th>
+									<th scope="col">Quantité :</th>
+									<th scope="col">Prix unitaire H.T :</th>
+									<th scope="col">TVA :</th>
+									<th scope="col">Total T.T.C :</th>
 								</tr>
-							{% endfor %}
+							</thead>
+							<tbody>
+								{% for dish in order.fVOrderDetails %}
+									<tr>
+										<td>
+											<img width="100px" height="100px" src="/image/uploads/{{ dish.dishImage }}" alt="{{ dish.dishName }}">
+										</td>
+										<td>{{ dish.dishName }}</td>
+										<td>{{ dish.dishQuantity }}</td>
+										<td>{{ dish.dishPrice|price }}</td>
+										<td>{{ dish.dishTva }}%</td>
+										{% set coeff = 1 + (dish.dishTva / 100) %}
+										<td>{{ ((dish.dishPrice * coeff) * dish.dishQuantity)|price }}</td>
+									</tr>
+								{% endfor %}
 
-							<tr>
-								<td></td>
-								<td>{{ order.carrierName }}</td>
-								<td>1</td>
-								<td></td>
-								<td></td>
-								<td>{{ order.carrierPrice|price }}</td>
-							</tr>
-						</tbody>
-					</table>
+								<tr>
+									<td></td>
+									<td>{{ order.carrierName }}</td>
+									<td>1</td>
+									<td></td>
+									<td></td>
+									<td>{{ order.carrierPrice|price }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
 					<div>
 						<strong class="fs-5">Total H.T :

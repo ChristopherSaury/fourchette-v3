@@ -1,0 +1,28 @@
+<header id="site-header">
+	<nav class="navbar">
+		<div class="logo-container">
+			<a class="logo-link" href="{{path('app_static_home')}}">
+				<img id="nav-logo" src="{{asset('image/logo.png')}}" alt="logo Fourchette Victorieuse">
+			</a>
+		</div>
+		<div class="link-container">
+			<ul>
+				<li><a href="{{path('app_static_home')}}" class="navigation-link">Accueil</a></li>
+				<li><a href="{{path('app_login')}}" class="navigation-link">Connexion</a></li>
+				<li><a href="{{path('app_dish_all')}}" class="navigation-link">Plats</a></li>
+				<li><a href="{{path('app_contact')}}" class="navigation-link">Contact</a></li>
+				<li><a href="{{path('app_static_faq')}}" class="navigation-link">FAQ</a></li>
+			</ul>
+		</div>
+		<div class="icons-container">
+			{% if app.user %}
+				<a class="navigation-link" href="{{path('app_account')}}">Espace Membre</a>
+				<a href="{{path('app_cart')}}" title="Mon panier" class="fas fa-shopping-cart shopping-icon"></a>
+				<span class="cartQtyLogged">{{ getFullCartQty }}</span>
+			{% else %}
+				<a href="{{path('app_cart')}}" title="Mon panier" class="fas fa-shopping-cart shopping-icon"></a>
+				<span class="cartQty">{{ getFullCartQty }}</span>
+			{% endif %}
+		</div>
+	</nav>
+</header>
