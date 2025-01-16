@@ -31,7 +31,7 @@ class PaymentController extends AbstractController
     ]);
 
     if (!$order) {
-      return $this->redirectToRoute('app_home');
+      return $this->redirectToRoute('app_static_home');
     }
 
     $dish_for_stripe = [];
@@ -90,7 +90,7 @@ class PaymentController extends AbstractController
     ]);
 
     if (!$order) {
-      return $this->redirectToRoute('app_home');
+      return $this->redirectToRoute('app_static_home');
     }
 
     if ($order->getState() == 1) {

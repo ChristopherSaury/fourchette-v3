@@ -18,7 +18,7 @@ class OrderController extends AbstractController
         ]);
 
         if(!$order){
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_static_home');
         }
         return $this->render('account/order/index.html.twig', [
             'order' => $order
