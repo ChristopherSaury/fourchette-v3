@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Foire aux questions - La Fourchette Victorieuse
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('css/faq/faq.css')}}">
+{% endblock %}
+
+{% block body %}
+	<section id="faq">
+        <div class="faq-banner">
+            <h1 class="text-center">Foire aux questions</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% include "./staticPage/faq/accordion.html.twig" %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
