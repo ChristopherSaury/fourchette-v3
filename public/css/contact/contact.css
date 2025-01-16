@@ -78,3 +78,28 @@
     height: auto;
     padding: 5% 0;
 }
+
+@media screen and (max-width: 768px){
+    #contact .ct-img-container{
+        display: none;
+    }
+    #contact .ct-input-container{
+        width: 100%;
+    }
+    #contact form button{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 600px){
+    #contact .ct-info{
+        padding: 8% 5%;
+    }
+}
+@media screen and (max-width: 450px){
+    #contact form button{
+        width: calc(100% - 20px);
+    }
+    #contact .ct-banner h1{
+        width: 80%;
+    }
+}

@@ -8,3 +8,9 @@
     min-height: 100vh;
     padding: 90px 0 4% 0;
 }
+@media screen and (max-width: 768px) {
+    #addresses .fv-user-address{
+        width: 50%;
+        height: auto;
+    }
+}

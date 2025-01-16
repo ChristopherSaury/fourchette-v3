@@ -24,16 +24,38 @@
 }
 
 @keyframes fade {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  25% { opacity: 1; }
-  30% { opacity: 0; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
-.slideshow .slide:nth-child(2) { animation-delay: 7s; }
-.slideshow .slide:nth-child(3) { animation-delay: 14s; }
-.slideshow .slide:nth-child(4) { animation-delay: 21s; }
+.slideshow .slide:nth-child(2) {
+  animation-delay: 7s;
+}
+
+.slideshow .slide:nth-child(3) {
+  animation-delay: 14s;
+}
+
+.slideshow .slide:nth-child(4) {
+  animation-delay: 21s;
+}
 
 .slideshow .text-overlay {
   position: absolute;
@@ -73,85 +95,102 @@
 
 /************************** HOME SECTION 2 *****************************************/
 #home-explanation {
-      background-color: #8f6f5c;
-      padding: 0 12% 0 12%;
-      width: 100%;
-      height: auto;
+  background-color: #8f6f5c;
+  padding: 0 12% 0 12%;
+  width: 100%;
+  height: auto;
 }
+
 #home-explanation h2 {
-      font-size: 56px;
-      color: #fff;
-      font-family: "Archivo", sans-serif;
-      font-weight: 800;
-      padding: 2% 0 5% 0;
+  font-size: 56px;
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  padding: 2% 0 5% 0;
 }
+
 #home-explanation h4 {
-      font-size: 28px;
-      font-family: "Mukta", sans-serif;
-      font-weight: 500;
-      color: black;
+  font-size: 28px;
+  font-family: "Mukta", sans-serif;
+  font-weight: 500;
+  color: black;
 }
+
 #home-explanation p {
-      color: #fff;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 500;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
 }
+
 #home-explanation img {
-      width: 200px;
-      height: 200px;
-      border-radius: 4%;
+  width: 200px;
+  height: 200px;
+  border-radius: 4%;
 }
 
 /**************************** HOME SECTION 3 ********************************/
 #home-offer {
-      background-color: #fff;
-      width: 100%;
-      min-height: 50vh; 
+  background-color: #fff;
+  width: 100%;
+  min-height: 50vh;
+  padding-bottom: 8%;
 }
-    
+
 #home-offer .row img {
-      height: 400px;
+  height: 400px;
 }
-    
+
 #home-offer h2 {
-      font-size: 56px;
-      color: #735240;
-      font-family: "Archivo", sans-serif;
-      font-weight: 800;
-      padding: 3% 0 5% 0;
+  font-size: 56px;
+  color: #735240;
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  padding: 3% 0 5% 0;
 }
+
 #home-offer .row .card {
-      margin: 0 5% 5% 5%;
+  width: 300px;
+  margin: 2%;
 }
+
 .reveal {
-      position: relative;
-      transform: translateY(150px);
-      opacity: 0;
-      transition: all 2s ease;
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 2s ease;
 }
-    
+
 .reveal.active {
-      transform: translateY(0px);
-      opacity: 1;
+  transform: translateY(0px);
+  opacity: 1;
 }
-  
-@media only screen and (max-width: 576px) {
-      #home-explanation h2 {
-        font-size: 40px;
-      }
-      #home-offer h2 {
-        font-size: 45px;
-      }
-    }
-    @media only screen and (min-width: 577px) and (max-width: 768px) {
-      .banner-content h1{
-        font-size: 34px;
-      }
-      #home-explanation h2 {
-        font-size: 45px;
-      }
-      #home-offer h2{
-        font-size: 45px;
-      }
+@media screen and (max-width: 768px) {
+  .banner-content h1 {
+    font-size: 34px;
+  }
+
+  #home-explanation h2 {
+    font-size: 45px;
+  }
+
+  #home-offer h2 {
+    font-size: 45px;
+  }
 }
+
+@media screen and (max-width: 576px) {
+
+  .slideshow {
+    height: calc(90vh - 70px);
+  }
+
+  #home-explanation h2 {
+    font-size: 40px;
+  }
+
+  #home-offer h2 {
+    font-size: 45px;
+  }
+}
+

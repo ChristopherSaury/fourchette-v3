@@ -4,6 +4,7 @@ footer {
     color: #fff;
     padding: 20px;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     text-align: left;
     z-index: 900;
@@ -28,4 +29,14 @@ footer {
 
   footer a:hover {
     color: #fdbd32;
+  }
+
+  @media screen and (max-width: 768px) {
+    footer{
+      flex-direction: column;
+      padding: 8%;
+    }
+    footer .footer-section {
+      margin-bottom: 4%;
+    }
   }

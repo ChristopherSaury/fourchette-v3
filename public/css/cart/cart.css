@@ -17,3 +17,9 @@
     color: #ffff;
     margin: 0 1px 0 1px;
 }
+@media screen and (max-width: 768px){
+    #cart .cart-img{
+        width: 70%;
+        height: auto;
+    }
+}

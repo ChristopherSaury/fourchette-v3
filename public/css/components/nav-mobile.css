@@ -1,0 +1,93 @@
+#mobile-header{
+    display: none;
+}
+#mobile-header .nav-mobile{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 70px;
+    background-color: #ffffff;
+    color: #735240;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.nav-mobile .logo-mobile-container{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+.nav-mobile .logo-mobile{
+    width: 60px;
+    height: 60px;
+}
+.nav-mobile .menu-icon-container{
+    width: 100px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+}
+.nav-mobile .menu-icon-container #menu-btn{
+    font-size: 25px;
+    cursor: pointer;
+}
+.nav-mobile .menu-icon-container .btn-container,
+.nav-mobile .menu-icon-container .cart-icon-container
+{
+    width: 50px;
+    height: 70px;
+}
+.nav-mobile .menu-icon-container .cart-icon-container{
+    position: relative;
+}
+.nav-mobile .menu-icon-container .cart-icon-container .shopping-icon{
+    position: relative;
+    color: #735240;
+    text-decoration: none;
+}
+.nav-mobile .menu-icon-container .cart-icon-container .cartQty{
+    position: relative;
+    top: -12px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdbd32;
+    color: #735240;
+}
+.nav-mobile .nav-mobile-links{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    background-color: #eeebeb;
+    top: 69px;
+    left: 0;
+    right: 0;
+    padding: 5% 10%;
+    opacity: 1;
+    z-index: 999;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.nav-mobile-links.active{
+    display: flex;
+}
+.nav-mobile .navigation-link-mobile{
+    color: #735240;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+@media screen and (max-width: 1000px) {
+    #mobile-header{
+        display: initial;
+    }
+}

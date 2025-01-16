@@ -40,3 +40,41 @@
     justify-content: center;
     flex-direction: column;
 }
+@media screen and (max-width: 1200px){
+    #register{
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    #register .img-container,
+    #register .form-container,
+    #register .formInput,
+    #register .signUpBtn{
+        width: 100%;
+    }
+    #register .img-container{
+        min-height: 40vh;
+    }
+    #register .form-container{
+        min-height: 50vh;
+        padding: 8% 4%;
+    }
+}
+@media screen and (max-width: 576px){
+    #register{
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    #register .img-container,
+    #register .form-container,
+    #register .formInput,
+    #register .signUpBtn{
+        width: 100%;
+    }
+    #register .img-container{
+        min-height: 50vh;
+    }
+    #register .form-container{
+        min-height: 50vh;
+        padding: 8% 4%;
+    }
+}

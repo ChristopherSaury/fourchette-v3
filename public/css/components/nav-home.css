@@ -139,3 +139,8 @@ header .icons-container .cartQtyLogged{
 header .icons-container a{
     position: relative;
 }
+@media screen and (max-width: 1000px) {
+    #site-header{
+        display: none;
+    }
+}

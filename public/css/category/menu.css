@@ -16,7 +16,7 @@
 }
 #dish-menu .dish-link img{
     max-width: 100%;
-    max-height: 380px ;
+    height: 380px ;
 }
 #dish-menu .dish-link .dish-title{
     font-size: 18px;
