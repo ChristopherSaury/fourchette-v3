@@ -15,7 +15,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
-use Webmozart\Assert\Assert as AssertAssert;
 
 class RegisterFVUserType extends AbstractType
 {
@@ -58,9 +57,9 @@ class RegisterFVUserType extends AbstractType
                 'mapped' => false
             ])
             ->add('agreeTerms', CheckboxType::class,[
-                'label' => 'J\'ai lu et j\'accepte les <a href="https://127.0.0.1:8000/" target="_blank">conditions d\'utilisation</a>',
+                'label' => 'J\'ai lu et j\'accepte les <a href="/conditions-generales-utilisation" target="_blank">conditions d\'utilisation</a>',
                 'label_html' => true,
-                'mapped' => false,
+                'mapped' => true,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez accepter les conditions d’utilisation pour continuer.',
