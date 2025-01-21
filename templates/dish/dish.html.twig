@@ -9,7 +9,7 @@
 <section id="category">
     <div class="container">
         <h1>{{category.name}}</h1>
-        <a href="{{path('app_dish_all')}}">Retour à la carte</a>
+        <a class="btn backToMenu" href="{{path('app_dish_all')}}">Retour à la carte</a>
         <p>Cette catégorie contient {{ dish_number }} plat(s)</p>
         <div class="row">
             {% for dish in dishes  %}
