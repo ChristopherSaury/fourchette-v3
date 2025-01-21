@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Nous Découvrir - La Fourchette Victorieuse
+{% endblock %}
+
+{% block style %}
+	<style>
+		.offer {
+			width: 100%;
+			min-height: 100vh;
+			padding: 10% 5%;
+			box-sizing: border-box;
+		}
+
+		.offer h1 {
+			font-size: 2rem;
+			line-height: 1.2;
+		}
+
+		.offer h2 {
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		.offer p {
+			font-size: 1rem;
+			line-height: 1.6;
+		}
+
+		.offer ul,
+		.offer ol {
+			margin-top: 1rem;
+			padding-left: 20px;
+		}
+		@media screen and(max-width: 768px) {
+			.offer {
+				padding: 20% 5%;
+			}
+			.offer h1 {
+				font-size: 1.8rem;
+			}
+
+			.offer h2 {
+				font-size: 1.3rem;
+			}
+
+			.offer p,
+			.offer ul,
+			.offer ol {
+				font-size: 0.95rem;
+			}
+		}
+
+		@media screen and(max-width: 480px) {
+			.offer h1 {
+				font-size: 1.5rem;
+			}
+
+			.offer h2 {
+				font-size: 1.2rem;
+			}
+
+			.offer p,
+			.offer ul,
+			.offer ol {
+				font-size: 0.9rem;
+			}
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+	<section class="offer">
+		<div class="container-fluid">
+			<h1>Bienvenue sur La Fourchette Victorieuse : Offrez-vous l'Excellence en Développement Web PHP</h1>
+			<p>
+				Chez La Fourchette Victorieuse, nous ne livrons pas de plats… mais des solutions web sur mesure, conçues pour répondre à vos besoins spécifiques ! 
+				                En tant que développeur spécialisé dans le développement web PHP, je propose une gamme complète de services pour transformer vos idées en réalités numériques 
+				                performantes et esthétiques.
+			</p>
+
+			<h2>Mes compétences au service de votre projet</h2>
+			<ul>
+				<li>
+					<strong>Expertise en Symfony</strong><br>
+					J’utilise le framework Symfony pour créer des applications web robustes, sécurisées et évolutives. De la conception au déploiement, chaque étape est maîtrisée pour garantir un produit de qualité.
+				</li>
+				<li>
+					<strong>Développement E-Commerce</strong><br>
+					Vous avez une idée de boutique en ligne ou de plateforme transactionnelle ? Je crée des solutions e-commerce optimisées avec une gestion intuitive pour vous et une expérience utilisateur fluide pour vos clients.
+				</li>
+				<li>
+					<strong>Personnalisation et intégrations</strong><br>
+					Besoin de fonctionnalités sur mesure ? D'intégrations API ? Je mets à profit mes connaissances avancées en PHP pour connecter vos outils et automatiser vos processus.
+				</li>
+				<li>
+					<strong>Performance et sécurité</strong><br>
+					Chaque ligne de code est pensée pour maximiser la vitesse et garantir la sécurité de vos données. Mes solutions respectent les standards les plus récents de l'industrie.
+				</li>
+			</ul>
+
+			<h2>Pourquoi choisir mes services ?</h2>
+			<ol>
+				<li>
+					<strong>Passion et professionnalisme</strong><br>
+					Chaque projet est pour moi une occasion de repousser mes limites et d’offrir des résultats à la hauteur de vos attentes.
+				</li>
+				<li>
+					<strong>Approche centrée sur vos besoins</strong><br>
+					Je m’efforce de comprendre vos objectifs pour vous livrer un produit qui correspond parfaitement à votre vision.
+				</li>
+				<li>
+					<strong>Accompagnement personnalisé</strong><br>
+					De l’idée initiale à la mise en ligne, je vous accompagne à chaque étape. Et même après, je reste disponible pour des mises à jour ou des optimisations.
+				</li>
+			</ol>
+
+			<h2>Transformez vos idées en réussites numériques</h2>
+			<p>
+				Mon but est de vous aider à réaliser vos projets grâce à des solutions web sur mesure et adaptées à votre secteur. Que vous soyez une entreprise cherchant à développer une plateforme robuste, ou un particulier ayant une idée ambitieuse, je suis là pour vous aider à chaque étape.
+			</p>
+			<p>
+				<strong>Prêt à passer à table ?</strong>
+				Contactez-moi dès maintenant pour discuter de votre projet au
+				<a href="tel:0699666588">06.99.66.65.88</a>
+				ou par email
+				<a href="mailto:saurychristopher@gmail.com">saurychristopher@gmail.com</a>. 
+					                Ensemble, donnons vie à vos idées grâce à mon expertise en PHP et Symfony.
+			</p>
+		</div>
+	</section>
+{% endblock %}

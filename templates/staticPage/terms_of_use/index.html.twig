@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Conditions générales d'utilisation - La Fourchette Victorieuse
+{% endblock %}
+{% block style %}
+	<style>
+		#agreeTerms {
+			width: 100%;
+			min-height: 100vh;
+			padding: 10% 5%;
+		}
+	</style>
+{% endblock %}
+{% block body %}
+	<main class="container" id="agreeTerms">
+        <div class="card shadow-sm p-4">
+            <h1 class="mb-4 text-center">Conditions générales d'utilisation</h1>
+            <h2 class="h4 mb-3">1. Introduction</h2>
+            <p>Bienvenue sur la-fourchette-victorieuse.fr (ci-après dénommé le « Site »). Ce Site est destiné à présenter les compétences et services offerts par Saury Christopher, spécialisé dans le développement web.</p>
+            <p>En utilisant le Site, vous acceptez les présentes Conditions Générales d’Utilisation (CGU). Si vous n’acceptez pas ces conditions, nous vous invitons à ne pas utiliser le Site.</p>
+
+            <h2 class="h4 mt-4">2. Objet du Site</h2>
+            <p>Le Site a pour objectif de :</p>
+            <ul>
+                <li>Présenter les compétences et expériences professionnelles du développeur.</li>
+                <li>Mettre en avant les services proposés, tels que la création, la maintenance et l’optimisation de sites internet.</li>
+                <li>Permettre aux utilisateurs de prendre contact pour discuter d’éventuels projets.</li>
+            </ul>
+            <p><strong>Le Site ne propose pas de vente en ligne directe mais sert à établir un premier contact avec les clients potentiels.</strong></p>
+
+            <h2 class="h4 mt-4">3. Utilisation du Site</h2>
+            <p>Les utilisateurs s’engagent à :</p>
+            <ul>
+                <li>Utiliser le Site dans le respect des lois en vigueur et des présentes CGU.</li>
+                <li>Ne pas tenter d’accéder à des zones protégées du Site ou de perturber son fonctionnement.</li>
+                <li>Ne pas diffuser de contenus illicites ou préjudiciables via les moyens de contact disponibles sur le Site.</li>
+            </ul>
+
+            <h2 class="h4 mt-4">4. Propriété intellectuelle</h2>
+            <p>Le contenu du Site (textes, images, logos, code source, etc.) est protégé par la législation sur la propriété intellectuelle. Toute reproduction ou utilisation sans autorisation est strictement interdite.</p>
+
+            <h2 class="h4 mt-4">5. Liens hypertextes</h2>
+            <p>Le Site peut inclure des liens vers des sites tiers. Ces liens sont fournis à titre informatif, et nous déclinons toute responsabilité quant à leur contenu ou leur fonctionnement.</p>
+
+            <h2 class="h4 mt-4">6. Données personnelles</h2>
+            <p>Les données personnelles collectées via le formulaire de contact sont utilisées uniquement pour répondre aux demandes des utilisateurs. Nous nous engageons à respecter le RGPD. Consultez notre <a href="{{path('app_static_data_policy')}}" target="_blank" class="text-decoration-none">Politique de Confidentialité</a> pour en savoir plus.</p>
+
+            <h2 class="h4 mt-4">7. Limitation de responsabilité</h2>
+            <p>Nous ne garantissons pas l’absence d’erreurs sur le Site ni l’accès ininterrompu. Nous déclinons toute responsabilité en cas de dommages indirects liés à son utilisation.</p>
+
+            <h2 class="h4 mt-4">8. Modification des CGU</h2>
+            <p>Nous nous réservons le droit de modifier les présentes CGU à tout moment. Les utilisateurs sont invités à les consulter régulièrement.</p>
+
+            <h2 class="h4 mt-4">9. Contact</h2>
+            <p>Pour toute question, veuillez nous contacter :</p>
+            <ul>
+                <li>Email : <a href="mailto:saurychristopher@gmail.com" class="text-decoration-none">saurychristopher@gmail.com</a></li>
+                <li>Téléphone : 06.99.66.65.88</li>
+                <li>Adresse : Chaussée Jules César Osny, 95520</li>
+            </ul>
+        </div>
+    </main>
+{% endblock %}
