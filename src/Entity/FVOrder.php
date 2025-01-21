@@ -38,7 +38,7 @@ class FVOrder
     private ?float $carrierPrice = null;
 
     #[ORM\ManyToOne(inversedBy: 'fVOrders')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?FVUser $user = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
