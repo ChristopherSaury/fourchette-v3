@@ -1,5 +1,5 @@
 <div class="row">
-    <h2 class="mt-4">Nos Entrées</h2>
+    <h2 class="catTitle mt-4">Nos Entrées</h2>
     {% for starter in starters %}
     <div class="grid-item col-lg-4 mt-4 col-md-6 col-sm-12 col-xs-12">
         <a href="{{path('app_dish_details', {'dish_slug': starter.slug })}}" class="dish-link">
@@ -9,5 +9,5 @@
         </a>
     </div>
     {% endfor %}
-    <a href="{{path('app_dish_category', {slug: 'entree'})}}">+ d'Entrées</a>
+    <a class="btn moreDish" href="{{path('app_dish_category', {slug: 'entree'})}}">+ d'Entrées</a>
 </div>

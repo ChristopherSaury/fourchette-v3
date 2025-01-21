@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 #dish-menu{
     width: 100%;
     min-height: 100vh;
@@ -20,4 +22,25 @@
 }
 #dish-menu .dish-link .dish-title{
     font-size: 18px;
+}
+#dish-menu h1{
+    font-family: "Playfair", serif;
+    font-size: 60px;
+}
+#dish-menu .catTitle{
+    font-family: "Merriweather", serif;
+    font-size: 40px;
+}
+#dish-menu .moreDish{
+    margin-top: 2%;
+    color: #735240;
+    background-color: #fdbd32;
+    font-weight: bold;
+    max-width: 250px;
+    display: grid;
+    place-items: center;
+    padding: 10px 0;
+}
+#dish-menu .moreDish:hover{
+    background-color: #ffd264;
 }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 #category{
     width: 100%;
     min-height: 100vh;
@@ -20,4 +21,20 @@
 }
 #category .dish-link .dish-title{
     font-size: 18px;
+}
+#category h1{
+    font-family: "Playfair", serif;
+    font-size: 60px;
+}
+#category .backToMenu{
+    margin-top: 2%;
+    color: #735240;
+    background-color: #fdbd32;
+    font-weight: bold;
+    max-width: 200px;
+    display: grid;
+    place-items: center;
+}
+#category .backToMenu:hover{
+    background-color: #ffd264;
 }
