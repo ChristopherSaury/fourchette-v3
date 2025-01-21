@@ -56,7 +56,7 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, FVOrder>
      */
-    #[ORM\OneToMany(targetEntity: FVOrder::class, mappedBy: 'user')]
+    #[ORM\OneToMany(targetEntity: FVOrder::class, mappedBy: 'user', orphanRemoval: false)]
     private Collection $fVOrders;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -64,6 +64,12 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $tokenExpireAt = null;
+
+    #[ORM\Column(nullable: false)]
+    private ?bool $agreeTerms = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: false)]
+    private ?\DateTimeInterface $createdAt = null;
 
     public function __construct()
     {
@@ -255,6 +261,30 @@ class FVUser implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTokenExpireAt(?\DateTimeInterface $tokenExpireAt): static
     {
         $this->tokenExpireAt = $tokenExpireAt;
+
+        return $this;
+    }
+
+    public function isAgreeTerms(): ?bool
+    {
+        return $this->agreeTerms;
+    }
+
+    public function setAgreeTerms(?bool $agreeTerms): static
+    {
+        $this->agreeTerms = $agreeTerms;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
