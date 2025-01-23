@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier informations utilisateur - La Fourchette Victorieuse
+{% endblock %}
+{% block style %}
+	<style>
+		#fvUser {
+			width: 100%;
+			min-height: 100vh;
+			padding-top: 70px;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+	<section id="fvUser">
+		<div class="container">
+			<div class="row">
+				<h1>Espace Membre</h1>
+				<div class="col-lg-4 col-md-4">
+					{% include './account/__menu.html.twig' %}
+				</div>
+				<div class="col-lg-8 col-md-8">
+					{% for message in app.flashes('success-modify-user') %}
+						<div class="alert alert-success">
+							{{ message }}
+						</div>
+					{% endfor %}
+					<h1>Modifier informations du compte</h1>
+					{{ form(userFormModify) }}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}
