@@ -4,10 +4,17 @@ footer {
     color: #fff;
     padding: 20px;
     display: flex;
+    flex-direction: column;
+    z-index: 900;
+  }
+  footer .first-row{
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     text-align: left;
-    z-index: 900;
+  }
+  footer .copyright{
+    margin: 2% 0 0 0;
   }
 
   footer .footer-section {
@@ -33,8 +40,10 @@ footer {
 
   @media screen and (max-width: 768px) {
     footer{
-      flex-direction: column;
       padding: 8%;
+    }
+    footer .first-row{
+      flex-direction: column;
     }
     footer .footer-section {
       margin-bottom: 4%;
